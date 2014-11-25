@@ -4,8 +4,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 less
 coffeescript
 mquandalle:jade
@@ -17,4 +15,14 @@ accounts-github
 accounts-google
 ian:accounts-ui-bootstrap-3
 email
+meteorhacks:npm
+
+
+npm-container
+dburles:collection-helpers
+jparker:gravatar
+chrismbeckett:fontawesome4
+reactive-var
+sergeyt:typeahead
+mquandalle:bower
 

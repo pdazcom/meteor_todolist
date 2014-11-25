@@ -1,0 +1,8 @@
+{
+  "packages": {
+    "bower": {}
+  },
+  "bower": {
+    "jquery.serializeJSON": "~2.4.*"
+  }
+}
