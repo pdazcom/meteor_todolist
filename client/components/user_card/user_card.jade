@@ -1,22 +1,5 @@
-//- client/components/users.jade
-template( name='users' )
-    h1 Users
-    .row
-        //- это данные, которые передает роутер шаблону
-        +each users
-            .col-xs-6.col-md-4.col-lg-3
-                //- рендерим карточку пользователя
-                //- в блоке each контекст меняется, поэтому мы
-                //- можем не передавать в шаблон никаких параметров
-                +userCard
-    //- кнопка загрузки следующей страницы
-    +nextPageButton
-//- client/components/user_avatar/user_avatar.jade
-//- унифицируем шаблон аватара, возможно понадобится добавить логику
-template(name='userAvatar')
-    img(src="{{user.getAvatar size}}", alt=user.getUsername, class="{{class}}")
 //- client/components/user_card.jade
-//- в этом шаблоне используются данные пользователя
+//- в данном шаблоне используются данные пользователя
 //- а также функции описанные в модели ранее
 template(name='userCard')
     .panel.panel-default

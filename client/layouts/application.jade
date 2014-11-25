@@ -4,28 +4,27 @@ template(name='application')
         .container
             .navbar-header
                 button.navbar-toggle.collapsed(
-                type='button',
-                data-toggle='collapse',
-                data-target='#navbar',
-                aria-expanded='false',
-                aria-controls='navbar'
-                )
+                        type='button',
+                        data-toggle='collapse',
+                        data-target='#navbar',
+                        aria-expanded='false',
+                        aria-controls='navbar'
+                    )
                     span.sr-only Toggle navigation
                     span.icon-bar
                     span.icon-bar
                     span.icon-bar
-                a.navbar-brand(href='#') TODO List
+                a.navbar-brand(href='/') TODO List
             #navbar.collapse.navbar-collapse
-               ul.nav.navbar-nav
-                  li
-                     a(href='/') Home
-                  li
-                     a(href='/about') About
-               ul.nav.navbar-nav.navbar-right
-                  //- шаблон кнопки авторизации пользователя
-                  //- идет в пакете ian:accounts-ui-bootstrap-3
-                  +loginButtons
-
+                ul.nav.navbar-nav
+                    li
+                        a(href='/') Home
+                    li
+                        a(href='/users') Users
+                    li
+                        a(href='/boards') Boards
+                ul.nav.navbar-nav.navbar-right
+                    +loginButtons
     .container
         +yield
     .footer

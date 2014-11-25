@@ -16,9 +16,6 @@ accounts-google
 ian:accounts-ui-bootstrap-3
 email
 meteorhacks:npm
-
-
-npm-container
 dburles:collection-helpers
 jparker:gravatar
 chrismbeckett:fontawesome4
@@ -26,3 +23,5 @@ reactive-var
 sergeyt:typeahead
 mquandalle:bower
 
+
+npm-container

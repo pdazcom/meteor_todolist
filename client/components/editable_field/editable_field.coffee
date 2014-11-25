@@ -15,5 +15,5 @@ Template.editableField.helpers
 Template.editableField.events
 # кидаем событие выше, при изменении данных в инпуте
   'change .Field': (event, template) ->
-    data  = $(event.target).serializeJSON()
+    data = $(event.target).serializeJSON()
     $(template.firstNode).trigger 'changed', [data]

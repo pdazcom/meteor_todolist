@@ -1,4 +1,4 @@
-# client/lib/0.pageable_route_controller.coffee
+# client/lib/pageable_route_controller.coffee
 varName = (inst, name = null) ->
   name = name && "_#{name}" || ""
   "#{inst.constructor.name}#{name}_limit"

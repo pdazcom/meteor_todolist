@@ -12,6 +12,27 @@ _.extend Users,
   findOneUser: (id, options) ->
     Users.findOne { $or: [ { _id: id }, { username: id } ] }, options
 
+  findAutocomplete: (q, options) ->
+    rg = new RegExp q, 'i'
+    Users.find
+      $or: [
+        { '_id'          : rg }
+        { 'username'     : rg }
+        { 'profile.name' : rg }
+      ]
+    , options
+
+# настройка коллекции
+Users.allow
+# разрешаем обновлять только указанные поля
+# проверка будет проходить на сервере, так что
+# можно не волноваться, что кто-то изменит
+# данные ограничение
+  update: (id, doc, fields, query) ->
+    f = _.intersection(Users.allowFieldsForUpdate, fields)
+    f.length == fields.length && Meteor.userId() == id
+
+
 # Добавляем методы и свойства в модель
 Users.helpers
 # метод обновления пользователя, можно вызывать прямо на клиенте

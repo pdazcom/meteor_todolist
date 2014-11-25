@@ -1,27 +1,28 @@
+# client/components/profile/profile.coffee
 Template.profile.helpers
   fieldUsername: ->
-    data:         @
+    data: @
     defaultValue: @getUsername()
     placeholder: 'Username'
-    scope:       'user'
-    path:        'username'
-    iconSymbol:  '@'
+    scope: 'user'
+    path: 'username'
+    iconSymbol: '@'
 
   fieldName: ->
-    data:         @
+    data: @
     defaultValue: @getName()
     placeholder: 'Name'
-    scope:       'user'
-    path:        'profile.name'
-    icon:        'user'
+    scope: 'user'
+    path: 'profile.name'
+    icon: 'user'
 
   fieldEmail: ->
-    data:         @
+    data: @
     defaultValue: @getPublicEmail()
     placeholder: 'Public email'
-    scope:       'user'
-    path:        'profile.email'
-    icon:        'envelope'
+    scope: 'user'
+    path: 'profile.email'
+    icon: 'envelope'
 
 Template.profile.events
 # отлавливаем изменения в редактируемых полях

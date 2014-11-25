@@ -1,3 +1,4 @@
+# client/routes/users.coffee
 Router.route '/users', name: 'users'
 class @UsersController extends PagableRouteController
 
@@ -6,7 +7,7 @@ class @UsersController extends PagableRouteController
 
   # подписываемся на коллекцию пользователей, с заданными лимитом,
   # чтобы не получать лишние данные
-  #
+  # 
   # подписка происходит через данный метод, чтобы iron:router
   # не рендерил шаблон загрузки страницы, каждый раз при обновлении
   # подписки
