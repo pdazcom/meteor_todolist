@@ -9,7 +9,7 @@
       return null unless object
     object
 
-# 'give.me.nested.value' -> 'base[give][me][nested][value]'
+  # 'give.me.nested.value' -> 'base[give][me][nested][value]'
   nameFromPath: (base, path) ->
     path = path.split('.').join('][')
     path = "[#{path}]" if path
