@@ -5,5 +5,9 @@ Template.boardCard.helpers
     bg && "background-image: url(#{bg})" || ''
 
 Template.boardCard.events
-  "click button.close": (event, template, data) ->
-    console.log arguments
+  "click button.close": (event, template) ->
+    bootbox.confirm "Are you sure that you want to remove this board?", (r)->
+      if !r
+        return true
+      template.data.removeBoard ->
+        alertify.success "Board was removed"

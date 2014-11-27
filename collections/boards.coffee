@@ -47,6 +47,9 @@ Boards.allow
   update: (userId, doc) ->
     userId && userId == doc.owner
 
+  remove: (userId, doc) ->
+    userId && userId == doc.owner
+
 
 # статические методы
 _.extend Boards,
@@ -65,6 +68,9 @@ _.extend Boards,
 Boards.helpers
   update: (data, cb) ->
     Boards.update @_id, data, cb
+
+  remove: (cb) ->
+    Boards.remove @_id, cb
 
   addUser: (user, cb) ->
     user = user._id if _.isObject(user)
@@ -103,6 +109,9 @@ Boards.helpers
   getDoingTasks: (options={sort:{createdAt:-1}}) -> TasksCollection.find { board: @_id, state: 'doing' }, options
   getDoneTasks:  (options={sort:{createdAt:-1}}) -> TasksCollection.find { board: @_id, state: 'done'  }, options
 
+  removeTasks: (cb) ->
+    TasksCollection.remove({ board: @_id }, cb)
+
   addTask: (task = {}, cb) ->
     task.board = @_id
     TasksCollection.insert task, cb
@@ -110,6 +119,11 @@ Boards.helpers
   urlData: ->
     id: @_id
 
+  removeBoard: (cb) ->
+    Meteor.call 'deleteBoard', @_id, (err) =>
+      if err
+        return alertify.error err.message
+      cb()
 
 # экспорт
 @BoardsCollection = Boards

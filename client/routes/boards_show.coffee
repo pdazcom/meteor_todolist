@@ -12,3 +12,8 @@ class @BoardsShowController extends PagableRouteController
 
   data: ->
     BoardsCollection.findOne @currentBoardId()
+
+  onBeforeAction: ->
+    if @data()
+      return @next()
+    Router.go '/boards'
